@@ -7,4 +7,8 @@ __pycache__/
 node_modules/
 .github/
 cloudinary_python.txt
+*.ipynb
 kaggle.json
+.env
+.env*
+!.env.example
