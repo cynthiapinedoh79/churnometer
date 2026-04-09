@@ -1,14 +1,37 @@
+# Core / system crash files
 core.Microsoft*
 core.mongo*
 core.python*
-env.py
+
+# Python
 __pycache__/
 *.py[cod]
-node_modules/
-.github/
-cloudinary_python.txt
-*.ipynb
-kaggle.json
+*.pyc
+
+# Virtual environments and secrets
+.venv/
 .env
 .env*
 !.env.example
+env.py
+kaggle.json
+cloudinary_python.txt
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Machine learning artifacts
+*.pkl
+*.joblib
+
+# Project outputs
+outputs/
+
+# Frontend / JS
+node_modules/
+
+# GitHub / local repo extras
+.github/
+
+# OS files
+.DS_Store
