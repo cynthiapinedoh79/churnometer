@@ -100,25 +100,36 @@ def parallel_plot_churn(df_eda):
 
     # hard coded from "disc.binner_dict_['tenure']"" result,
     tenure_map = [-np.Inf, 6, 12, 18, 24, np.Inf]
-    # found at "02 - Churned Customer Study" notebook
-    # under "Parallel Plot" section
+
     disc = ArbitraryDiscretiser(binning_dict={'tenure': tenure_map})
-    df_parallel = disc.fit_transform(df_eda)
+    df_parallel = disc.fit_transform(df_eda.copy())
 
     n_classes = len(tenure_map) - 1
     classes_ranges = disc.binner_dict_['tenure'][1:-1]
     LabelsMap = {}
+
     for n in range(0, n_classes):
         if n == 0:
             LabelsMap[n] = f"<{classes_ranges[0]}"
-        elif n == n_classes-1:
+        elif n == n_classes - 1:
             LabelsMap[n] = f"+{classes_ranges[-1]}"
         else:
             LabelsMap[n] = f"{classes_ranges[n-1]} to {classes_ranges[n]}"
 
     df_parallel['tenure'] = df_parallel['tenure'].replace(LabelsMap)
+
     fig = px.parallel_categories(
-        df_parallel, color="Churn", width=750, height=500)
-    
-    # we use st.plotly_chart() to render, in notebook is fig.show()
-    st.plotly_chart(fig)
+        df_parallel,
+        color="Churn",
+        width=1100,
+        height=600
+    )
+
+    fig.update_layout(
+        autosize=False,
+        margin=dict(l=80, r=80, t=40, b=40),
+        font=dict(size=14)
+    )
+
+    # in notebook use fig.show()
+    st.plotly_chart(fig, use_container_width=False, theme=None)
