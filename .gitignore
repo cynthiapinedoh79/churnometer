@@ -35,3 +35,25 @@ node_modules/
 
 # OS files
 .DS_Store
+
+# Keep deployed ML artifacts
+!outputs/
+!outputs/ml_pipeline/
+!outputs/ml_pipeline/predict_churn/
+!outputs/ml_pipeline/predict_churn/v1/
+!outputs/ml_pipeline/predict_churn/v1/*.pkl
+!outputs/ml_pipeline/predict_tenure/
+!outputs/ml_pipeline/predict_tenure/v1/
+!outputs/ml_pipeline/predict_tenure/v1/*.pkl
+!outputs/ml_pipeline/cluster_analysis/
+!outputs/ml_pipeline/cluster_analysis/v1/
+!outputs/ml_pipeline/cluster_analysis/v1/*.pkl
+
+# Frontend / JS
+node_modules/
+
+# GitHub / local repo extras
+.github/
+
+# OS files
+.DS_Store
