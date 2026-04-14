@@ -119,5 +119,6 @@ def parallel_plot_churn(df_eda):
     df_parallel['tenure'] = df_parallel['tenure'].replace(LabelsMap)
     fig = px.parallel_categories(
         df_parallel, color="Churn", width=750, height=500)
+    
     # we use st.plotly_chart() to render, in notebook is fig.show()
     st.plotly_chart(fig)
